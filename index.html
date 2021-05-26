@@ -229,10 +229,10 @@
                     cy="28"
                     r="28"
                   />
-                  <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
+                  <path id="bm-ribbon" fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
                 </g>
               </svg>
-              <p>Bookmark</p>
+              <p id="bm-text">Bookmark</p>
             </button>
           </div>
         </div>
@@ -360,22 +360,32 @@
   </body>
   <script>
     let title = document.getElementById("bm-circle");
+    let title2 = document.getElementById("bm-ribbon");
     let presentColor = title.getAttribute("fill");
+    let presentColor2 = title.getAttribute("fill");
+
 
     function changeColor(color) {
       if (color == "rgb(60, 180, 172)") {
         document
           .getElementById("bm-circle")
           .setAttribute("fill", "rgb(47, 47, 47)");
-        console.log("changed to grey");
-        presentColor = title.getAttribute("fill");
-        return presentColor;
+          document
+          .getElementById("bm-ribbon")
+          .setAttribute("fill", "#B1B1B1");
+        presentColor = title.getAttribute("fill")
+        presentColor2 = title.getAttribute("fill")
+        document.getElementById("bm-text").innerHTML = "Bookmarked";
       } else {
         document
           .getElementById("bm-circle")
           .setAttribute("fill", "rgb(60, 180, 172)");
-        console.log("changed to green");
+          document
+          .getElementById("bm-ribbon")
+          .setAttribute("fill", "#fff");
         presentColor = title.getAttribute("fill");
+        presentColor2 = title.getAttribute("fill")
+        document.getElementById("bm-text").innerHTML = "Bookmark";
       }
     }
   </script>
